@@ -33,7 +33,7 @@ public class AuthUtil {
                 //PAYLOAD
                 .subject(user.getUsername())
                 .claim("userId", user.getId().toString())
-                .issuedAt(new Date())
+                .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis()+ 1000*60*10))
                 //SECRET(JJWT generates HEADER automatically using signWith)
                 .signWith(getSecretKey())

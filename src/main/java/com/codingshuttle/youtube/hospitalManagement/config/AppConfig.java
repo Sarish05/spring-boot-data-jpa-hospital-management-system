@@ -22,10 +22,6 @@ public class AppConfig {
         return new ModelMapper();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 
     //We want to fetch real users from DB instead of using these in-memory users so commented it
     //@Bean
@@ -40,6 +36,10 @@ public class AppConfig {
                 .roles("PATIENT")
                 .build();
         return new InMemoryUserDetailsManager(user1,user2);
+    }
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
